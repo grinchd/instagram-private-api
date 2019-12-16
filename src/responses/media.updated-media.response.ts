@@ -37,6 +37,9 @@ export interface MediaUpdatedMediaResponseUpdated_media {
   can_reply: boolean;
   is_pride_media: boolean;
   story_polls: MediaUpdatedMediaResponseStoryPollsItem[];
+  story_questions: MediaUpdatedMediaResponseStoryQuestionsItem[];
+  story_quizs: MediaUpdatedMediaResponseStoryQuizsItem[];
+  story_sliders: MediaUpdatedMediaResponseStorySlidersItem[];
   creative_config: MediaUpdatedMediaResponseCreative_config;
   supports_reel_reactions: boolean;
   can_send_custom_emojis: boolean;
@@ -113,6 +116,76 @@ export interface MediaUpdatedMediaResponseTalliesItem {
   text: string;
   font_size: number;
   count: number;
+}
+export interface MediaUpdatedMediaResponseStoryQuestionsItem {
+  x: number;
+  y: number;
+  z: number;
+  width: number;
+  height: number;
+  rotation: number;
+  is_pinned: number;
+  is_hidden: number;
+  is_sticker: number;
+  question_sticker: MediaUpdatedMediaResponseQuestionSticker;
+}
+export interface MediaUpdatedMediaResponseQuestionSticker {
+  question_type: string;
+  question_id: number;
+  question: string;
+  media_id: number;
+  text_color: string;
+  background_color: string;
+  viewer_can_interact: boolean;
+  profile_pic_url: string;
+}
+export interface MediaUpdatedMediaResponseStoryQuizsItem {
+  x: number;
+  y: number;
+  z: number;
+  width: number;
+  height: number;
+  rotation: number;
+  is_pinned: number;
+  is_hidden: number;
+  is_sticker: number;
+  quiz_sticker: MediaUpdatedMediaResponseQuizSticker;
+}
+export interface MediaUpdatedMediaResponseQuizSticker {
+  id: string;
+  quiz_id: number;
+  question: string;
+  tallies: MediaUpdatedMediaResponseTalliesItem[];
+  correct_answer: number;
+  viewer_can_answer: boolean;
+  finished: boolean;
+  text_color: string;
+  start_background_color: string;
+  end_background_color: string;
+  viewer_answer?: number;
+}
+export interface MediaUpdatedMediaResponseStorySlidersItem {
+  x: number;
+  y: number;
+  z: number;
+  width: number;
+  height: number;
+  rotation: number;
+  is_pinned: number;
+  is_hidden: number;
+  is_sticker: number;
+  slider_sticker: MediaUpdatedMediaResponseSliderSticker;
+}
+export interface MediaUpdatedMediaResponseSliderSticker {
+  slider_id: number;
+  question: string;
+  emoji: string;
+  text_color: string;
+  background_color: string;
+  viewer_can_vote: boolean;
+  slider_vote_average: null;
+  slider_vote_count: number;
+  viewer_vote?: number;
 }
 export interface MediaUpdatedMediaResponseCreative_config {
   capture_type: string;
